@@ -3,9 +3,6 @@ body {
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2); 
 }
-.container {
-  width: 50%;
-}
 #contenido {
     background-color: white;
     margin-top: 40px;

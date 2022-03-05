@@ -3,6 +3,9 @@ body {
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2); 
 }
+.container {
+  width: 50%;
+}
 #contenido {
     background-color: white;
     margin-top: 40px;
@@ -17,13 +20,16 @@ body {
 header {
     padding: 10px;
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 22px;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
 }
 form {
     margin: 30px 0;
+}
+#mensaje {
+  resize: none;
 }
 #loaders {
     text-align: center;

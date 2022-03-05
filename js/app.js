@@ -10,5 +10,5 @@ function eventListeners () {
 // Funciones
 function iniciarApp() {
     btnEnviar.disabled = true;
-    btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
+    btnEnviar.classList.add('cursor-not-allowed', 'opacity-50', 'rounded-full');
 }

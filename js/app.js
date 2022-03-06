@@ -30,28 +30,59 @@ function iniciarApp() {
 
 // Valida el formulario
 function validarFormulario(e) {
+
     if( e.target.value.length > 0 ) {
-        console.log('si')
+        e.target.classList.remove('border', 'border-red-600');
+        e.target.classList.add('border', 'border-green-500');
+        
+        // Elimina los errores
+        const error = document.querySelector('p.error')
+        error.remove();
     } else {
+        e.target.classList.remove('border', 'border-green-500');
         e.target.classList.add('border', 'border-red-600', 'rounded-full');
 
-        mostrarError();
+        mostrarError('Todos los campos son obligatorios');
+    }
+
+    if (e.target.type === 'email') {
+        const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if ( er.test( e.target.value ) ) {
+            e.target.classList.remove('border', 'border-red-600');
+            e.target.classList.add('border', 'border-green-500');
+            
+            // Elimina los errores
+            const error = document.querySelector('p.error')
+            error.remove();
+        } else {
+            e.target.classList.remove('border', 'border-green-500');
+            e.target.classList.add('border', 'border-red-600', 'rounded-full');
+            
+            mostrarError('Email no válido');
+        }
     }
 }
 
 function validarMensaje(e) {
     if (e.target.value.length > 0) {
-
+        e.target.classList.remove('border', 'border-red-600');
+        e.target.classList.add('border', 'border-green-500');
+        
+        // Elimina los errores
+        const error = document.querySelector('p.error')
+        error.remove();
     } else {
+        e.target.classList.remove('border', 'border-green-500');
         e.target.classList.add('border', 'border-red-600', 'rounded');
 
-        mostrarError();
+        mostrarError('Todos los campos son obligatorios');
     }
 }
 
-function mostrarError() {
+function mostrarError(mensaje) {
     const mensajeError = document.createElement('p');
-    mensajeError.textContent = 'Todos los campos son obligatorios';
+    mensajeError.textContent = mensaje;
     mensajeError.classList.add('border', 'border-red-600', 'background-red-100', 'text-red-500', 'p-3','rounded', 'mb-5', 'text-center', 'font-medium', 'error');
 
     const errores = document.querySelectorAll('.error')
